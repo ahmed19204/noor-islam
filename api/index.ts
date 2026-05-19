@@ -162,9 +162,19 @@ type SupabaseMutateQuery = SupabaseQuery & {
 function buildSupabaseClient(url: string, key: string): SupabaseRest {
   const base = url.replace(/\/+$/, '') + '/rest/v1'
 
+  // PostgREST filter value formatter.
+  //
+  // IMPORTANT: do NOT call encodeURIComponent here.
+  // We append filters via URLSearchParams.append(col, `${op}.${val}`), and
+  // URLSearchParams.toString() already percent-encodes the value. Pre-encoding
+  // causes DOUBLE encoding: `"Nizhny Novgorod"` → `"Nizhny%20Novgorod"` →
+  // `"Nizhny%2520Novgorod"`, which PostgREST then reads as the literal string
+  // `"Nizhny%20Novgorod"` — so `city=eq.Nizhny Novgorod` silently matches zero
+  // rows. Returning the raw string fixes today / tomorrow / monthly / delete
+  // endpoints in one shot.
   function encodeOp(val: unknown): string {
     if (val === null || val === undefined) return 'null'
-    return encodeURIComponent(String(val))
+    return String(val)
   }
 
   function buildQuery(table: string, method: 'GET', config: { select?: string }): SupabaseQuery {
