@@ -1,0 +1,24 @@
+{
+  "name": "noor-prayer-times",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Noor Prayer Times — Hono + Vercel + Supabase prayer-time PWA for Nizhny Novgorod.",
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel deploy --prod",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "hono": "^4.12.19",
+    "jose": "^6.2.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.6.3",
+    "vercel": "^48.0.0"
+  }
+}

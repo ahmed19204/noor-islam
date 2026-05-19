@@ -1,0 +1,10 @@
+node_modules
+.git
+.vercel
+.env
+.env.local
+.env.*.local
+*.log
+README.md
+DEPLOYMENT.md
+supabase-schema.sql
