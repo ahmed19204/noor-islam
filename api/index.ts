@@ -1062,6 +1062,7 @@ function renderPage(title: string, bodyContent: string, activePage = 'home') {
     window.__ACTIVE_PAGE__ = '${activePage}';
   </script>
   <script src="/static/app.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>`
 }
