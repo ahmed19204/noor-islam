@@ -1063,6 +1063,10 @@ function renderPage(title: string, bodyContent: string, activePage = 'home') {
   </script>
   <script src="/static/app.js"></script>
   <script defer src="/_vercel/insights/script.js"></script>
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/analytics/script.js"></script>
 </body>
 </html>`
 }
