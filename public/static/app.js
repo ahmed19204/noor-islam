@@ -2,7 +2,7 @@
 // Noor Prayer Times – Client-side Application
 // FULLY DATABASE-DRIVEN – No fake/mock/generated data
 // ══════════════════════════════════════════════════════════════
-import { inject } from '@vercel/analytics'
+
 (function () {
   'use strict';
 
@@ -1104,5 +1104,4 @@ import { inject } from '@vercel/analytics'
     init();
   }
 
-  inject();
 })();
